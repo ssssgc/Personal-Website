@@ -1,0 +1,66 @@
+#hoverRangeDebug {
+  position: fixed;
+  width: 750px;
+  height: 750px;
+  border: none;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 30;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-aura {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform, opacity;
+  background: radial-gradient(
+    circle,
+    rgba(254, 255, 254, 0.62) 1%,
+    rgba(193, 242, 210, 0.36) 15%,
+    rgba(138, 148, 142, 0.24) 30%,
+    rgba(185, 220, 185, 0.17) 50%,
+    rgba(158, 175, 159, 0.1) 60%,
+    rgba(240, 245, 240, 0.05) 80%,
+    transparent 100%
+  );
+  border: none;
+  box-shadow:
+    0 0 30px rgba(228, 234, 228, 0.25),
+    0 0 90px rgba(221, 246, 187, 0.18);
+  filter: blur(18px);
+  opacity: 0.8;
+}
+
+/* Click ripple — soft expanding ring */
+.aura-ripple {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  background: transparent;
+  box-shadow:
+    0 0 30px rgba(0, 255, 60, 0.35),
+    0 0 60px rgba(7, 199, 183, 0.20),
+    0 0 90px rgba(5, 165, 66, 0.15);
+  animation: ripple-expand 500ms ease-out forwards;
+}
+
+@keyframes ripple-expand {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.4);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3.5);
+  }
+}

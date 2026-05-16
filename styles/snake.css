@@ -1,0 +1,93 @@
+/* 🐍 蛇 */
+#snake {
+  position: fixed;
+  top: 52%;
+  left: 53%;
+  opacity: 0;
+  pointer-events: auto;
+  z-index: 15;
+}
+
+#snake svg {
+  position: absolute;
+  width: 250px;
+  top: 0;
+  left: 0;
+}
+#snake1 {
+  transform-origin: center;
+}
+#snake1Pieces {
+  position: absolute;
+  width: 250px;
+  aspect-ratio: 593.48 / 586;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: center;
+}
+#snake1Pieces img {
+  position: absolute;
+  width: 250px;
+  top: 0;
+  left: 0;
+}
+#snake2 {
+  transform-origin: center;
+}
+#snake2Pieces {
+  position: absolute;
+  width: 250px;
+  aspect-ratio: 593.48 / 591.41;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: center;
+}
+#snake2Pieces img {
+  position: absolute;
+  width: 250px;
+  top: 0;
+  left: 0;
+}
+#snake3 {
+  transform-origin: center;
+}
+#snake3Pieces {
+  position: absolute;
+  width: 250px;
+  aspect-ratio: 593.48 / 591.41;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: center;
+}
+#snake3Pieces img {
+  position: absolute;
+  width: 250px;
+  top: 0;
+  left: 0;
+}
+#snake4 {
+  pointer-events: auto;
+  transform-origin: center;
+}
+#snake4Pieces {
+  position: absolute;
+  width: 250px;
+  aspect-ratio: 593.48 / 591.41;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: center;
+}
+#snake4Pieces img {
+  position: absolute;
+  width: 250px;
+  top: 0;
+  left: 0;
+}

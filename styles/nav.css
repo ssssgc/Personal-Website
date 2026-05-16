@@ -1,0 +1,44 @@
+#nav {
+  position: fixed;
+  bottom: 80px;
+  width: 100%;
+  z-index: 20;
+  display: flex;
+  justify-content: space-around;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  color: #507750;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s;
+}
+
+#nav a.nav-link {
+  position: relative;
+  z-index: 1;
+}
+
+#nav a.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  width: 160px;
+  height: 100px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: linear-gradient(to bottom, #e05610, #f7f900);
+  z-index: -1;
+  pointer-events: none;
+}
+
+#nav a.work-link::after {
+  transform: translate(-50%, calc(-60% + 20px)) rotate(180deg);
+}
+
+#nav a {
+  color: inherit;
+  text-decoration: none;
+}

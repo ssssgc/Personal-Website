@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  height: 200vh;
+  background: black;
+  overflow-x: hidden;
+}
+
+#hero {
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+}
+
+#name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 20;
+
+  transform: translate(-50%, -50%) scale(3);
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 100px;
+  color: #f7f900;
+  letter-spacing: 10px;
+  white-space: nowrap;
+
+  opacity: 0;
+  filter: blur(20px);
+
+  transition: all 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#dvd {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: Impact, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: hotpink;
+}
+
+.smashed-piece {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 18;
+  will-change: transform;
+}
+
+canvas.bg{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block;transition:opacity 1.2s ease}
+canvas#bg-light{opacity:0}
+canvas#bg-dark{opacity:1}
