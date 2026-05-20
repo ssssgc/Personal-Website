@@ -266,25 +266,6 @@ function auraColorForScroll(t) {
   return { background: bg, boxShadow: sh.join(',') };
 }
 
-let intensity4 = 8;         // 当前强度
-let targetIntensity4 = 8;   // 目标强度（关键）
-
-// 每条蛇的物理数据
-const snakes = [
-  { el: s1, x: -210, y: -170, vx: 0, vy: 0 },
-  { el: s2, x: -130, y: -130, vx: 0, vy: 0 },
-  { el: s3, x: -190, y: -170, vx: 0, vy: 0 },
-  { el: s4, x: -190, y: -100, vx: 0, vy: 0 }
-];
-let snakeBodies = [];
-// s4 hover
-s4.addEventListener("mouseenter", () => {
-  targetIntensity4 = 25;
-});
-
-s4.addEventListener("mouseleave", () => {
-  targetIntensity4 = 8;
-});
 s1.addEventListener("click", () => { if (!isSnakePage()) return; triggerMacClick(s1); explodeSnakes(); });
 s2.addEventListener("click", () => { if (!isSnakePage()) return; triggerMacClick(s2); explodeSnakes(); });
 s3.addEventListener("click", () => { if (!isSnakePage()) return; triggerMacClick(s3); explodeSnakes(); });

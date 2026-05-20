@@ -1,27 +1,9 @@
-const { Engine, Render, Runner, Bodies, Composite, Constraint } = Matter;
+const { Engine, Runner, Bodies, Composite, Constraint } = Matter;
 
 const engine = Engine.create();
 window.engine = engine;
 engine.positionIterations = 6;
 engine.velocityIterations = 6;
-
-const render = Render.create({
-  element: document.body,
-  engine: engine,
-  options: {
-    width: window.innerWidth,
-    height: window.innerHeight,
-    wireframes: true,
-    background: 'transparent'
-  }
-});
-render.canvas.style.position = "fixed";
-render.canvas.style.left = "0";
-render.canvas.style.top = "0";
-render.canvas.style.pointerEvents = "none";
-render.canvas.style.zIndex = "1";
-
-render.options.wireframeStrokeStyle = '#00ff00';
 
 let frameBodies = [];
 
@@ -41,13 +23,6 @@ function rebuildFrame() {
   ];
 
   Composite.add(engine.world, frameBodies);
-
-  render.canvas.width = width;
-  render.canvas.height = height;
-  render.canvas.style.width = `${width}px`;
-  render.canvas.style.height = `${height}px`;
-  render.options.width = width;
-  render.options.height = height;
 }
 
 rebuildFrame();

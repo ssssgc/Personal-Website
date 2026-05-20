@@ -32,30 +32,6 @@ void main(){
   gl_FragColor=vec4(col,1.0);
 }`;
 
-const WGL_FS_LIGHT = `precision highp float;
-uniform vec2 u_resolution;uniform float u_time;uniform vec2 u_mouse;
-void main(){
-  vec2 uv=gl_FragCoord.xy/u_resolution.xy;
-  vec2 p=uv;p.x*=u_resolution.x/u_resolution.y;
-  vec2 m=u_mouse;m.x*=u_resolution.x/u_resolution.y;
-  vec2 md=p-m;float dl=length(md);
-  float ripple=exp(-dl*4.5)*sin(dl*18.0-u_time*2.0)*0.006;
-  p+=normalize(md+vec2(0.0001))*ripple;
-  float band1=sin(p.x*2.2+u_time*0.1)*cos(p.y*1.6+u_time*0.07)*0.016;
-  float band2=sin(p.x*1.4+p.y*1.0+u_time*0.05)*0.012;
-  float band3=cos(p.y*2.8-p.x*0.8+u_time*0.09)*0.010;
-  float gloss=pow(abs(sin(p.x*5.0+p.y*2.0+u_time*0.07)),4.0)*0.025;
-  gloss+=pow(abs(sin(p.x*3.5-p.y*3.0-u_time*0.05)),5.0)*0.018;
-  float breath=sin(u_time*0.22)*0.015+0.015;
-  float motion=band1+band2+band3+breath;
-  float centerDist=length(uv-0.5)*1.3;
-  float centerGlow=(1.0-smoothstep(0.0,1.0,centerDist))*0.025;
-  vec3 col=vec3(0.973,0.976,0.322);
-  col+=motion*0.04+vec3(gloss)+centerGlow;
-  col=clamp(col,0.0,1.0);
-  gl_FragColor=vec4(col,1.0);
-}`;
-
 function wglBoot(canvasId, fsSrc) {
   const canvas = document.getElementById(canvasId);
   const gl = canvas.getContext('webgl', { alpha: false, antialias: true });
@@ -88,7 +64,6 @@ function wglBoot(canvasId, fsSrc) {
   };
 }
 const wglDrawDark = wglBoot('bg-dark', WGL_FS_DARK);
-const wglDrawLight = wglBoot('bg-light', WGL_FS_LIGHT);
 const wglT0 = Date.now();
 (function wglLoop() {
   const t = (Date.now() - wglT0) / 1000;
