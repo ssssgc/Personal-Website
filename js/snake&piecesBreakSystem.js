@@ -657,7 +657,7 @@ setPostFrameCallback(function() {
     });
   }
 
-  if (snakeBreakTime && performance.now() - snakeBreakTime > 2000) {
+  if (snakeBreakTime && performance.now() - snakeBreakTime > 1500) {
     const REPULSE_STRENGTH = 0.015;
 
     const allBodies = [
